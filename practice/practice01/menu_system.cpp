@@ -3,7 +3,7 @@
 #include "menu_system.h"
 //this file is for giving the functions commands
 void displayMenu() {
-    std::cout << "Menu Options:\n" << std::endl;
+    std::cout << "\nMenu Options:\n" << std::endl;
     std::cout << "1. Add an item to the vector\n" << std::endl;
     std::cout << "2. Print the vector\n" << std::endl;
     std::cout << "3. Double the vector\n" << std::endl;
