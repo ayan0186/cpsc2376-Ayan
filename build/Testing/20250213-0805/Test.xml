@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-MSBuild"
+	BuildStamp="20250213-0805-Experimental"
+	Name="AyanHuda"
+	Generator="ctest-3.31.5"
+	CompilerName="C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe"
+	CompilerVersion="19.42.34435.0"
+	OSName="Windows"
+	Hostname="AyanHuda"
+	OSRelease=" Personal"
+	OSVersion=" (Build 26100)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="4"
+	ModelName="AMD Ryzen 7 7840HS w/ Radeon 780M Graphics     "
+	ProcessorCacheSize="64"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="27554"
+	TotalPhysicalMemory="15554"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3792"
+	>
+	<Testing>
+		<StartDateTime>Feb 13 02:21 Central Standard Time</StartDateTime>
+		<StartTestTime>1739434889</StartTestTime>
+		<TestList/>
+		<EndDateTime>Feb 13 02:21 Central Standard Time</EndDateTime>
+		<EndTestTime>1739434889</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
