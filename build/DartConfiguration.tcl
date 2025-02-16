@@ -4,7 +4,7 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/ayanh/Downloads/cpsc2376-Ayan/tests
+SourceDirectory: C:/Users/ayanh/Downloads/cpsc2376-Ayan
 BuildDirectory: C:/Users/ayanh/Downloads/cpsc2376-Ayan/build
 
 # Where to place the cost data store
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/ayanh/Downloads/cpsc2376-Ayan/tests"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/ayanh/Downloads/cpsc2376-Ayan"
 MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -45,7 +45,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: 
+GITCommand: C:/Program Files/Git/cmd/git.exe
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -58,9 +58,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: C:/Program Files/Git/cmd/git.exe
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe

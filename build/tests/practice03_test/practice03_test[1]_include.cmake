@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/tests/practice03_test/practice03_test[1]_tests.cmake")
+  include("C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/tests/practice03_test/practice03_test[1]_tests.cmake")
+else()
+  add_test(practice03_test_NOT_BUILT practice03_test_NOT_BUILT)
+endif()

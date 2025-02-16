@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../practice/practice03/practice03.cpp"
+#include "../../practice/practice03/practice03.cpp" // Corrected relative path
 
 TEST(MathUtilsTest, SumRange)
 {
@@ -13,7 +13,7 @@ TEST(MathUtilsTest, ContainsNegative)
     std::vector<int> numbers2 = {3, 1, 5, 7};
 
     ASSERT_TRUE(MathUtils::containsNegative(numbers1));
-    ASSERT_FALSE(MathUtils::containsNegative(numbers2))
+    ASSERT_FALSE(MathUtils::containsNegative(numbers2)); // Added missing semicolon
 }
 
 TEST(MathUtilsTest, FindMax)

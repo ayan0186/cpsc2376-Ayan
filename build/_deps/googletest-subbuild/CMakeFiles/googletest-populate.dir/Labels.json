@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/00b4a5bb7cf666b3658bf68e10e7d601/googletest-populate.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/05c3df56e924f1dd3b232a5529a1d1fd/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/googletest-subbuild/CMakeFiles/51f596e9a76e229d60374e2c62c89c67/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

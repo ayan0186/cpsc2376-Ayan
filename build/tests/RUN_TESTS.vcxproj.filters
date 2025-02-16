@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\CMakeFiles\7738b9e8955952c6d89ee3feb669875d\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{157234DB-2F55-388A-9343-2357D0AEC38C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

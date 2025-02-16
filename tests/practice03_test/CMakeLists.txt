@@ -1,19 +1,11 @@
-cmake_minimum_required(VERSION 3.5.0)
-project(practice03_test VERSION 0.1.0 LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.10)
 
+# Add the test executable
 add_executable(practice03_test practice03_test.cpp)
 
-include(FetchContent)
-    FetchContent_Declare(
-      googletest
-      GIT_REPOSITORY https://github.com/google/googletest.git
-      GIT_TAG        v1.14.0 # Use the desired tag/version
-    )
-    FetchContent_MakeAvailable(googletest)
+# Link the test executable with GoogleTest
+target_link_libraries(practice03_test gtest_main)
 
-include(CTest)
-enable_testing()
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+# Register the test
+include(GoogleTest)
+gtest_discover_tests(practice03_test)
