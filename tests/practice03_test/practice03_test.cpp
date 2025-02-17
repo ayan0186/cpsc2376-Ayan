@@ -24,3 +24,12 @@ TEST(MathUtilsTest, FindMax)
     ASSERT_EQ(MathUtils::findMax(numbers1), 7);
     ASSERT_EQ(MathUtils::findMax(numbers2), 3);
 }
+
+TEST(MathUtilsTest, FindMin)
+{
+    std::vector<int> numbers1 = {3, -1, 5, 7};
+    std::vector<int> numbers2 = {3, 3, 3, 3};
+
+    ASSERT_EQ(MathUtils::findMin(numbers1), -1);
+    ASSERT_EQ(MathUtils::findMin(numbers2), 3);
+}

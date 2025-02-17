@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\d277d5ca78512c579541465ccc8f77a0\gtest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\aa0b62f622c19bf91759dbc311a5a82e\gtest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\f643fbe434f8c079de9208bbe218f236\gtest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\gtest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{12D141EC-0780-36AA-B58C-57E24C52E06E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

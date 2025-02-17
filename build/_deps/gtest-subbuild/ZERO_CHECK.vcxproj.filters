@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ayanh\Downloads\cpsc2376-Ayan\build\_deps\gtest-subbuild\CMakeFiles\f643fbe434f8c079de9208bbe218f236\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{12D141EC-0780-36AA-B58C-57E24C52E06E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

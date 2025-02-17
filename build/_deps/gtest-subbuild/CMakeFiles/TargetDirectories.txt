@@ -1,0 +1,3 @@
+C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/gtest-subbuild/CMakeFiles/gtest-populate.dir
+C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/gtest-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/ayanh/Downloads/cpsc2376-Ayan/build/_deps/gtest-subbuild/CMakeFiles/ZERO_CHECK.dir

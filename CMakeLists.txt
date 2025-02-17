@@ -1,26 +1,25 @@
-cmake_minimum_required(VERSION 3.10)
-project(practice03_test)
+cmake_minimum_required(VERSION 3.15)  # Make sure to set the minimum CMake version
 
-include(CTest)
-enable_testing()
+project(MyProject)
 
+# Include FetchContent module (needed for downloading libraries)
 include(FetchContent)
 
-# Download and unpack googletest at configure time
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.11.0
-)
+# Try to find GoogleTest, if not found, it will be downloaded
+find_package(GTest QUIET)
 
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+if (NOT GTest_FOUND)
+  message(STATUS "GoogleTest not found, downloading using FetchContent")
+  FetchContent_Declare(
+    gtest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG main  # or specify a specific tag/commit
+  )
+  FetchContent_MakeAvailable(gtest)
+else()
+  message(STATUS "GoogleTest found")
+endif()
 
-FetchContent_MakeAvailable(googletest)
-
-# Set runtime library to dynamic for both your project and GoogleTest
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
-
-# Add subdirectory for tests
+# Add source and test directories
+add_subdirectory(src)
 add_subdirectory(tests)
