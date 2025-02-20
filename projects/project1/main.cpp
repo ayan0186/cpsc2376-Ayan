@@ -27,24 +27,18 @@ void gameplay(Connect_four &game){
 
 int main() {
     Connect_four game;
+    gameplay(game);
+    int playAgain;
+    std::cout << "Do you want to play again? (1 for yes, 0 for no): ";
+    std::cin >> playAgain;
     
-    while(true){
+    if(playAgain == 1){
+        Connect_four game;
+        game = Connect_four();
         gameplay(game);
-
-        std::string playAgain;
-        std::cout << "Would you like to play again? (yes/no): ";
-        std::cin >> playAgain;
-        if(playAgain == "yes"){
-            game = Connect_four(); //reset the game
-            continue;
-        }
-        else if(playAgain == "no"){
-            std::cout << "Goodbye!" << std::endl;
-            break;
-        }
-        else{
-            std::cout << "Invalid input. Please enter 'yes' or 'no'." << std::endl;
-        }
+        
+    }else{
+    std::cout << "Thanks for playing!" << std::endl;
     }
     return 0;
 }

@@ -16,9 +16,11 @@ void Connect_four::makeBoard() {
 
 // Function to play the game, alternating turns
 void Connect_four::play() {
+    while(gameStatus() == winStatus::IN_PROGRESS) {
+        
     int c;  // Column chosen by the player
     bool valid = false;
-
+    
     // Print who's turn it is
     std::cout << "Player " << current_player << "'s turn" << std::endl;
     std::cout << "Enter a column number (0 to " << col - 1 << "): ";
@@ -53,8 +55,7 @@ void Connect_four::play() {
     // Change player turn after a valid move
     current_player = (current_player == player1 ? player2 : player1);
 }
-
-
+}
 // Function to check the game status (win, draw, or in progress)
 Connect_four::winStatus Connect_four::gameStatus() const {
     for(int i = row - 1; i >= 0; --i) {
