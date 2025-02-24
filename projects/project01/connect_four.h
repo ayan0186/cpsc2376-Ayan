@@ -29,4 +29,6 @@ public:
     winStatus gameStatus() const;
 };
 
+void displayRules(); 
+
 #endif

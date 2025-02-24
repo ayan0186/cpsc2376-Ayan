@@ -3,6 +3,7 @@
 #include "connect_four.cpp" 
 
 void gameplay(Connect_four &game){
+    displayRules(); 
     game.makeBoard();
     game.play();
 

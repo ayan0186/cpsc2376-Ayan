@@ -99,3 +99,11 @@ Connect_four::winStatus Connect_four::gameStatus() const {
 
     return winStatus::IN_PROGRESS;
 }
+
+void displayRules() {
+    std::cout << "Welcome to Connect Four!" << std::endl;
+    std::cout << "The rules are simple: try to connect four of your pieces in a row, column, or diagonal before your opponent does." << std::endl;
+    std::cout << "Players take turns choosing a column to drop their piece into." << std::endl;
+    std::cout << "The first player to connect four pieces wins!" << std::endl;
+    std::cout << "Let's get started!" << std::endl;
+}
