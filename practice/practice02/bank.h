@@ -1,6 +1,5 @@
 #pragma once
 
-
 float readFromFile();
 void writeBalanceToFile(float balance);
 void checkBalance(float balance); 
