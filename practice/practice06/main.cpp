@@ -59,7 +59,8 @@ while(true)
         break; 
 
         case 6: 
-        f1 = Fraction(0,1)
+        f1 = Fraction(0,1); 
+        break; 
 
         case 7: 
         cout << "Exiting Program..."; 
@@ -67,6 +68,7 @@ while(true)
 
         default: 
         cout << "Invaild choice, try again"; 
+        continue; 
 
     }
 
