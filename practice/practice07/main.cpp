@@ -95,7 +95,7 @@ int main() {
 
     ifstream file("employees.txt");
     if (!file) {
-        cerr << "Error opening file!" << endl;
+        cerr << "Error opening file: employees.txt" << endl;
         return 1;
     }
 
@@ -103,23 +103,26 @@ int main() {
     while (file >> type) {
         int id;
         string name;
+        file >> id;
+        file.ignore(); // Ignore the space between id and name
+        getline(file, name); // Read the name
 
         if (type == "Salaried") {
-            file >> id >> name;
             double monthlySalary;
             file >> monthlySalary;
             employees.push_back(new SalariedEmployee(name, id, monthlySalary));
         } else if (type == "Hourly") {
-            file >> id >> name;
             double hourlyRate;
             int hoursWorked;
             file >> hourlyRate >> hoursWorked;
             employees.push_back(new HourlyEmployee(name, id, hourlyRate, hoursWorked));
         } else if (type == "Commission") {
-            file >> id >> name;
             double baseSalary, salesAmount, commissionRate;
             file >> baseSalary >> salesAmount >> commissionRate;
             employees.push_back(new CommissionEmployee(name, id, baseSalary, salesAmount, commissionRate));
+        } else {
+            cerr << "Unknown employee type: " << type << endl;
+            return 1;
         }
     }
 
