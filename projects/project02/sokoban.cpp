@@ -1,14 +1,13 @@
-#include <iostream>
-#include <vector>
 #include "sokoban.h"
+#include <vector>
 
 Game::Game()
-    : board{}, player1{1}, player2{2}
+    : board{}, playerX{1}, playerY{1}  // Default position
 {
     board = {
         {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+        {'#', 'P', ' ', ' ', ' ', ' ', ' ', ' ', 'G', '#'},
+        {'#', ' ', 'B', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
         {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
         {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
         {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
@@ -17,86 +16,64 @@ Game::Game()
         {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
         {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
     };
-    for(int i = 0; i < board.size(); i++){
-        for(int j = 0; j < board[i].size(); j++){
-            if(board[i][j] == 'P'){
-                player1 = i;
-                player2 = j;
-            }
+}
+
+void Game::play(char move) {
+    int dx = 0, dy = 0;
+    //move player based on input
+    if (move == 'w') dx = -1;
+    else if (move == 's') dx = 1;
+    else if (move == 'a') dy = -1;
+    else if (move == 'd') dy = 1;
+    else return;
+
+    int newX = playerX + dx;
+    int newY = playerY + dy;
+
+    // Check if the move is into a wall
+    if (board[newX][newY] == '#') return;
+
+    // Check if moving into a box
+    if (board[newX][newY] == 'B') {
+        if (pushBox(newX, newY, dx, dy)) {
+            board[playerX][playerY] = ' ';  // Clear old position
+            board[newX][newY] = 'P';
+            playerX = newX;
+            playerY = newY;
         }
+    }
+    // Normal move into empty space or goal
+    else if (board[newX][newY] == ' ' || board[newX][newY] == 'G') {
+        board[playerX][playerY] = ' ';  // Clear old position
+        board[newX][newY] = 'P';
+        playerX = newX;
+        playerY = newY;
     }
 }
 
-void Game::play(char move)
-{
-    int dx, dy;
+bool Game::pushBox(int boxX, int boxY, int dx, int dy) {
+    int newBoxX = boxX + dx;
+    int newBoxY = boxY + dy;
 
-    if(move == 'w'){
-        dx = -1;
-        dy = 0;
-    }
-    else if(move == 's'){
-        dx = 1;
-        dy = 0;
-    }
-    else if(move == 'a'){
-        dx = 0;
-        dy = -1;
-    }
-    else if(move == 'd'){
-        dx = 0;
-        dy = 1;
-    }
-    else{
-        return;
-    }
-
-    int newPlayer1 = player1 + dx;
-    int newPlayer2 = player2 + dy;
-
-    if(board[newPlayer1][newPlayer2] == ' '){
-        board[player1][player2] = ' ';
-        board[newPlayer1][newPlayer2] = 'P';
-        player1 = newPlayer1;
-        player2 = newPlayer2;
-    }
-    else if(board[newPlayer1][newPlayer2] == 'B'){
-        if(pushBox(newPlayer1, newPlayer2, dx, dy)){
-            board[player1][player2] = ' ';
-            board[newPlayer1][newPlayer2] = 'P';
-            player1 = newPlayer1;
-            player2 = newPlayer2;
-        }
-    }
-}
-
-bool Game::pushBox(int newPlayer1, int newPlayer2, int dx, int dy)
-{
-    int newBox1 = newPlayer1 + dx;
-    int newBox2 = newPlayer2 + dy;
-
-    if(board[newBox1][newBox2] == ' '){
-        board[newPlayer1][newPlayer2] = ' ';
-        board[newBox1][newBox2] = 'B';
+    if (board[newBoxX][newBoxY] == ' ' || board[newBoxX][newBoxY] == 'G') {
+        board[newBoxX][newBoxY] = 'B'; // Move box
+        board[boxX][boxY] = ' ';       // Clear old box position
         return true;
     }
-    return false;
+    return false;  // Box can't be pushed
 }
 
-Game::Status Game::gameStatus() const
-{
-    for(int i = 0; i < board.size(); i++){
-        for(int j = 0; j < board[i].size(); j++){
-            if(board[i][j] == 'B'){
-                return Status::IN_PROGRESS;
+Game::Status Game::gameStatus() const {
+    for (size_t i = 0; i < board.size(); i++) {
+        for (size_t j = 0; j < board[i].size(); j++) {
+            if (board[i][j] == 'G') {
+                return Status::IN_PROGRESS; // Game continues if any box is left
             }
         }
     }
     return Status::WIN;
 }
 
-std::vector<std::vector<char>> Game::getBoard() const
-{
+std::vector<std::vector<char>> Game::getBoard() const {
     return board;
 }
-

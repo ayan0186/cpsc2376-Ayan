@@ -1,23 +1,17 @@
-#pragma once 
-#include <iostream>
+#pragma once
 #include <vector>
 
-class Game
-{
-   public: 
+class Game {
+public:
+    enum Status { IN_PROGRESS, WIN };
 
-   enum Status { IN_PROGRESS, WIN }; 
+    Game(); 
+    void play(char move);
+    Status gameStatus() const;
+    std::vector<std::vector<char>> getBoard() const;
 
-   Game(); 
-
-   void play(char move); 
-   Game::Status gameStatus() const;
-   std::vector<std::vector<char>> getBoard() const;
-
-   private:
-   std::vector<std::vector<char>> board;
-   int player1, player2;
-
-   bool pushBox(int newPlayer1, int newPlayer2, int dx, int dy);
-
+private:
+    std::vector<std::vector<char>> board;
+    int playerX, playerY;
+    bool pushBox(int boxX, int boxY, int dx, int dy);
 };
