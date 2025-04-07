@@ -105,7 +105,12 @@
     "text_encoding": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "list": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "istream": "cpp",
+    "sstream": "cpp"
   },
   "cmake.sourceDirectory": "C:/Users/ayanh/Downloads/cpsc2376-Ayan/tests",
   "cmake.ignoreCMakeListsMissing": true,
