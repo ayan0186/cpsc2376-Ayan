@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run SDL2",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/practice/practice12/main.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/practice/practice12",
+      "environment": [],
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build SDL2 (MSVC)"
+    }
+  ]
+}
