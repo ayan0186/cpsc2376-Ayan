@@ -2,29 +2,33 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build SDL2 Sokoban (MSVC)",
+      "label": "Build Sokoban (MSVC)",
       "type": "shell",
-      "command": "cl.exe",
+
+      // we run EVERYTHING inside cmd.exe, not PowerShell
+      "options": {
+        "cwd": "${workspaceFolder}",            //  C:\Users\ayanh\Downloads\cpsc2376-Ayan
+        "shell": {
+          "executable": "cmd.exe",
+          "args": [ "/d", "/c" ]                // disable autorun, run one command
+        }
+      },
+
+      // one long command:  vcvars64.bat  &&  cl …
+      "command": "\"%ProgramFiles(x86)%\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && cl.exe",
+
       "args": [
-        "/EHsc",
-        "src\\main.cpp",
-        "engine.cpp",
-        "SDL2.lib",
-        "SDL2main.lib",
-        "Shell32.lib",
-        "/I", "SDL2\\include",
+        "/std:c++20", "/EHsc",
+        "/I", "SDL2\\include", "/I", "src",
+        "src\\main.cpp", "src\\game.cpp",
         "/link",
         "/LIBPATH:SDL2\\lib\\x64",
+        "SDL2.lib", "SDL2main.lib", "Shell32.lib",
         "/SUBSYSTEM:WINDOWS",
         "/OUT:sokoban.exe"
       ],
-      "options": {
-        "cwd": "${workspaceFolder}/projects/project04"
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+
+      "group": { "kind": "build", "isDefault": true },
       "problemMatcher": []
     }
   ]
