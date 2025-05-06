@@ -1,13 +1,15 @@
 #pragma once
 #include <vector>
+#include <SDL.h>
 
 class Game {
 public:
     enum Status { IN_PROGRESS, WIN };
 
-    Game(); 
+    Game();
     void play(char move);
     Status gameStatus() const;
+    void draw(SDL_Renderer* ren, int cell) const;
     std::vector<std::vector<char>> getBoard() const;
 
 private:

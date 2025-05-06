@@ -1,79 +1,94 @@
-#include "sokoban.h"
-#include <vector>
+#include "game.h"
+#include <SDL.h>
 
 Game::Game()
-    : board{}, playerX{1}, playerY{1}  // Default position
+    : playerX(1), playerY(1)
 {
     board = {
-        {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
-        {'#', 'P', ' ', ' ', ' ', ' ', ' ', ' ', 'G', '#'},
-        {'#', ' ', 'B', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
+        {'#','#','#','#','#','#','#','#','#','#'},
+        {'#','P',' ',' ',' ',' ',' ',' ','G','#'},
+        {'#',' ','B',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#','#','#','#','#','#','#','#','#','#'}
     };
 }
 
-void Game::play(char move) {
+void Game::play(char move)
+{
     int dx = 0, dy = 0;
-    //move player based on input
-    if (move == 'w') dx = -1;
-    else if (move == 's') dx = 1;
+    if (move == 'w')      dx = -1;
+    else if (move == 's') dx =  1;
     else if (move == 'a') dy = -1;
-    else if (move == 'd') dy = 1;
+    else if (move == 'd') dy =  1;
     else return;
 
     int newX = playerX + dx;
     int newY = playerY + dy;
 
-    // Check if the move is into a wall
     if (board[newX][newY] == '#') return;
 
-    // Check if moving into a box
     if (board[newX][newY] == 'B') {
         if (pushBox(newX, newY, dx, dy)) {
-            board[playerX][playerY] = ' ';  // Clear old position
+            board[playerX][playerY] = ' ';
             board[newX][newY] = 'P';
             playerX = newX;
             playerY = newY;
         }
     }
-    // Normal move into empty space or goal
     else if (board[newX][newY] == ' ' || board[newX][newY] == 'G') {
-        board[playerX][playerY] = ' ';  // Clear old position
+        board[playerX][playerY] = ' ';
         board[newX][newY] = 'P';
         playerX = newX;
         playerY = newY;
     }
 }
 
-bool Game::pushBox(int boxX, int boxY, int dx, int dy) {
+bool Game::pushBox(int boxX, int boxY, int dx, int dy)
+{
     int newBoxX = boxX + dx;
     int newBoxY = boxY + dy;
-
     if (board[newBoxX][newBoxY] == ' ' || board[newBoxX][newBoxY] == 'G') {
-        board[newBoxX][newBoxY] = 'B'; // Move box
-        board[boxX][boxY] = ' ';       // Clear old box position
+        board[newBoxX][newBoxY] = 'B';
+        board[boxX][boxY]     = ' ';
         return true;
     }
-    return false;  // Box can't be pushed
+    return false;
 }
 
-Game::Status Game::gameStatus() const {
-    for (size_t i = 0; i < board.size(); i++) {
-        for (size_t j = 0; j < board[i].size(); j++) {
-            if (board[i][j] == 'G') {
-                return Status::IN_PROGRESS; // Game continues if any box is left
+Game::Status Game::gameStatus() const
+{
+    for (auto& row : board)
+        for (char cell : row)
+            if (cell == 'G')
+                return IN_PROGRESS;
+    return WIN;
+}
+
+std::vector<std::vector<char>> Game::getBoard() const
+{
+    return board;
+}
+
+void Game::draw(SDL_Renderer* ren, int cell) const
+{
+    SDL_Rect rect{0, 0, cell, cell};
+    for (int r = 0; r < (int)board.size(); ++r) {
+        for (int c = 0; c < (int)board[r].size(); ++c) {
+            switch (board[r][c]) {
+                case '#': SDL_SetRenderDrawColor(ren, 105,105,105,255); break;
+                case 'P': SDL_SetRenderDrawColor(ren, 255,255,255,255); break;
+                case 'B': SDL_SetRenderDrawColor(ren, 139,69,19,255);   break;
+                case 'G': SDL_SetRenderDrawColor(ren,   0,255,  0,255); break;
+                default:  SDL_SetRenderDrawColor(ren,   0,  0,  0,255); break;
             }
+            rect.x = c * cell;
+            rect.y = r * cell;
+            SDL_RenderFillRect(ren, &rect);
         }
     }
-    return Status::WIN;
-}
-
-std::vector<std::vector<char>> Game::getBoard() const {
-    return board;
 }
