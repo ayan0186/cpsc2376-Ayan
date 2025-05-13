@@ -18,6 +18,51 @@ Game::Game()
     };
 }
 
+std::vector<std::vector<std::vector<char>>> levelData = {
+    {
+        {'#','#','#','#','#','#','#','#','#','#'},
+        {'#','P',' ',' ',' ',' ',' ',' ','G','#'},
+        {'#',' ','B',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ',' ',' ',' ',' ','B','G','#'},
+        {'#','B','B','B','B','B','B','B','B','#'},
+        {'#','G','G','G','G','G','G','G','G','#'},
+        {'#','#','#','#','#','#','#','#','#','#'}
+    }, 
+
+    {
+        {'#','#','#','#','#','#','#','#','#','#'},
+        {'#','P',' ',' ',' ',' ',' ',' ','G','#'},
+        {'#',' ','B',' ',' ',' ',' ',' ',' ','#'},
+        {'#',' ',' ','B','B','B','B','B','B','#'},
+        {'#',' ','G','G','G','G','G','G','G','#'},
+        {'#','B','B','B','B','B','B','B','B','#'},
+        {'#','G','G','G','G','G','G','G','G','#'},
+        {'#','#','#','#','#','#','#','#','#','#'}
+
+    }
+    }; 
+
+void Game::loadLevel(const std::vector<std::vector<std::vector<char>>>& levelData)
+{
+    levels = level;
+    currentLevel = 0;
+    board = levels[currentLevel];
+    playerX = 1;
+    playerY = 1;
+}
+
+void Game::nextLevel()
+{
+    if (currentLevel + 1 < levels.size()) {
+        currentLevel++;
+        board = levels[currentLevel];
+        playerX = 1;
+        playerY = 1;
+    }
+}
+
 void Game::play(char move)
 {
     int dx = 0, dy = 0;
@@ -45,6 +90,11 @@ void Game::play(char move)
         board[newX][newY] = 'P';
         playerX = newX;
         playerY = newY;
+
+        if (board[newX][newY] == 'G') {
+            board[newX][newY] = ' ';
+            nextLevel();
+        }
     }
 }
 
